@@ -1,0 +1,22 @@
+脚本服务设置成系统服务说明：
+
+1.新建配置文件：
+[root@local t27]# cat /etc/init/higis_wms_script.conf
+
+
+description "higis_wms_script up_down"
+author "chao-shu"
+start on runlevel [234]
+stop on runlevel [0156]
+chdir 脚本存放路径
+exec  脚本全路径
+respawn
+
+2、重新加载upstate
+[root@local t27]# initctl reload-configuration
+3、启动服务
+
+[root@local t27]# start higis_wms_script
+[root@local t27]# stop higis_wms_script
+
+
